@@ -1,4 +1,4 @@
-package com.localtransaction.service1;
+package com.lksun.service2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,10 +9,10 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class Service1Application {
+public class Service2Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Service1Application.class, args);
+        SpringApplication.run(Service2Application.class, args);
     }
 
     @Bean
