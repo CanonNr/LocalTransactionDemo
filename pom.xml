@@ -20,6 +20,7 @@
     </properties>
 
     <modules>
+        <module>eureka</module>
         <module>service1</module>
     </modules>
 

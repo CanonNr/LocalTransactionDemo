@@ -1,0 +1,9 @@
+server:
+  port: 11060
+
+spring:
+  application:
+    name: eureka
+eureka:
+  instance:
+    hostname: eureka
