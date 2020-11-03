@@ -8,7 +8,7 @@
         <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.localtransaction</groupId>
+    <groupId>com.lksun</groupId>
     <artifactId>service1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>service1</name>

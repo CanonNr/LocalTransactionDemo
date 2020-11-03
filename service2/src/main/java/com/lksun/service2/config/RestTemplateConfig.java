@@ -1,4 +1,4 @@
-package com.localtransaction.service1.config;
+package com.lksun.service2.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

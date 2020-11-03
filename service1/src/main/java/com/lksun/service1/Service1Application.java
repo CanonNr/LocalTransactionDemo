@@ -1,4 +1,4 @@
-package com.localtransaction.service1;
+package com.lksun.service1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +15,4 @@ public class Service1Application {
         SpringApplication.run(Service1Application.class, args);
     }
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
 }
