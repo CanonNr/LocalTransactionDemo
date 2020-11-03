@@ -4,9 +4,13 @@ import com.lksun.service1.common.ResponseTemplate;
 import com.lksun.service1.dao.OrdersDao;
 import com.lksun.service1.entity.Order;
 import com.lksun.service1.service.impl.OrderServiceImpl;
+import com.lksun.service1.service.impl.RabbitMQServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
+import javax.xml.crypto.Data;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/order")
@@ -39,5 +43,16 @@ public class OrderController {
 
         // 发送到MQ
         return ResponseTemplate.success(null);
+    }
+
+    @Autowired
+    RabbitMQServiceImpl rabbitMQService;
+
+
+    @GetMapping("test")
+    public void test(){
+        String msg = "hello lksun - "+ System.currentTimeMillis();
+        rabbitMQService.sendMsg(msg);
+        System.out.println(msg);
     }
 }

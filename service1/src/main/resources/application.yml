@@ -9,6 +9,16 @@ spring:
     url: jdbc:mysql://localhost:3306/lr_test1?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
+  rabbitmq:
+    host: 172.16.2.30
+    port: 5672
+    username: admin
+    password: 123457
+    listener:
+      type: simple
+      simple:
+        default-requeue-rejected: false
+        acknowledge-mode: manual
 
 mybatis:
   mapper-locations:
