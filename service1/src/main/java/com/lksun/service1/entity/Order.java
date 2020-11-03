@@ -4,10 +4,10 @@ import java.io.Serializable;
 import lombok.Data;
 
 @Data
-public class Orders implements Serializable {
+public class Order implements Serializable {
     private Integer id;
 
-    private Integer orderId;
+    private Integer goodId;
 
     private Integer status;
 

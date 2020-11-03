@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lksun.service1.dao.OrdersDao">
-  <resultMap id="BaseResultMap" type="com.lksun.service1.entity.Orders">
+  <resultMap id="BaseResultMap" type="com.lksun.service1.entity.Order">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="good_id" jdbcType="INTEGER" property="goodId" />
     <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, order_id, `status`
+    id, good_id, `status`
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -19,34 +19,34 @@
     delete from orders
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lksun.service1.entity.Orders" useGeneratedKeys="true">
-    insert into orders (order_id, `status`)
-    values (#{orderId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lksun.service1.entity.Order" useGeneratedKeys="true">
+    insert into orders (good_id, `status`)
+    values (#{goodId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lksun.service1.entity.Orders" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lksun.service1.entity.Order" useGeneratedKeys="true">
     insert into orders
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="orderId != null">
-        order_id,
+      <if test="goodId != null">
+        good_id,
       </if>
       <if test="status != null">
         `status`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="orderId != null">
-        #{orderId,jdbcType=INTEGER},
+      <if test="goodId != null">
+        #{goodId,jdbcType=INTEGER},
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lksun.service1.entity.Orders">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lksun.service1.entity.Order">
     update orders
     <set>
-      <if test="orderId != null">
-        order_id = #{orderId,jdbcType=INTEGER},
+      <if test="goodId != null">
+        good_id = #{goodId,jdbcType=INTEGER},
       </if>
       <if test="status != null">
         `status` = #{status,jdbcType=INTEGER},
@@ -54,9 +54,9 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lksun.service1.entity.Orders">
+  <update id="updateByPrimaryKey" parameterType="com.lksun.service1.entity.Order">
     update orders
-    set order_id = #{orderId,jdbcType=INTEGER},
+    set good_id = #{goodId,jdbcType=INTEGER},
       `status` = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>

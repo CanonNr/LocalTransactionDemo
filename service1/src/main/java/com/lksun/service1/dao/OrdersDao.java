@@ -1,17 +1,19 @@
 package com.lksun.service1.dao;
 
-import com.lksun.service1.entity.Orders;
+import com.lksun.service1.entity.Order;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface OrdersDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Orders record);
+    int insert(Order record);
 
-    int insertSelective(Orders record);
+    int insertSelective(Order record);
 
-    Orders selectByPrimaryKey(Integer id);
+    Order selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(Orders record);
+    int updateByPrimaryKeySelective(Order record);
 
-    int updateByPrimaryKey(Orders record);
+    int updateByPrimaryKey(Order record);
 }
