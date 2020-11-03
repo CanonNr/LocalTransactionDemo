@@ -53,4 +53,10 @@ public class OrderController {
         return ResponseTemplate.success(null);
     }
 
+    @GetMapping("test")
+    public void test(){
+        String msg = "hello lksun - "+ System.currentTimeMillis();
+        rabbitMQService.sendMsg(msg);
+        System.out.println(msg);
+    }
 }
