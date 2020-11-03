@@ -10,9 +10,9 @@ import java.io.IOException;
 
 @Component
 public class DeadLetterMessage {
-    @RabbitListener(queues = RabbitMqConfig.LKSUN_TEST_DEAD_LETTER_QUEUE)
-    public void receiveA(Message message, Channel channel) throws IOException {
-        System.out.println("死信队列得到消息：" + new String(message.getBody()));
-        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-    }
+//    @RabbitListener(queues = RabbitMqConfig.LKSUN_TEST_DEAD_LETTER_QUEUE)
+//    public void receiveA(Message message, Channel channel) throws IOException {
+//        System.out.println("死信队列得到消息：" + new String(message.getBody()));
+//        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+//    }
 }

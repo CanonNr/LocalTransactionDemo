@@ -9,13 +9,9 @@ import java.io.IOException;
 
 @Component
 public class RabbitMqTask {
-    @RabbitListener(queues = RabbitMqConfig.LKSUN_TEST_QUEUE)
-    public void task(Message message, Channel channel) throws IOException {
-        String msg = new String(message.getBody());
-        try{
-            System.out.println(0/0);
-        }catch (Exception e){
-            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, false);
-        }
-    }
+//    @RabbitListener(queues = RabbitMqConfig.LKSUN_TEST_QUEUE)
+//    public void task(Message message, Channel channel) throws IOException {
+//        String msg = new String(message.getBody());
+//
+//    }
 }

@@ -1,7 +1,9 @@
 package com.lksun.service1.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.lksun.service1.common.ResponseTemplate;
 import com.lksun.service1.dao.OrdersDao;
+import com.lksun.service1.dto.OrderMqMessage;
 import com.lksun.service1.entity.Order;
 import com.lksun.service1.service.impl.OrderServiceImpl;
 import com.lksun.service1.service.impl.RabbitMQServiceImpl;
@@ -20,6 +22,9 @@ public class OrderController {
 
     @Autowired
     OrderServiceImpl orderServiceImpl;
+
+    @Autowired
+    RabbitMQServiceImpl rabbitMQService;
 
     @GetMapping(value = "")
     @Transactional(rollbackFor = Exception.class)
@@ -40,19 +45,12 @@ public class OrderController {
         }catch (Exception e){
             return ResponseTemplate.failed(e.getMessage());
         }
-
+        OrderMqMessage orderMqMessage = OrderMqMessage.OrderMqMessage(order.getId(), order.getGoodId());
+        String msg = JSON.toJSON(orderMqMessage).toString();
+        System.out.println(msg);
+        rabbitMQService.sendMsg(msg);
         // 发送到MQ
         return ResponseTemplate.success(null);
     }
 
-    @Autowired
-    RabbitMQServiceImpl rabbitMQService;
-
-
-    @GetMapping("test")
-    public void test(){
-        String msg = "hello lksun - "+ System.currentTimeMillis();
-        rabbitMQService.sendMsg(msg);
-        System.out.println(msg);
-    }
 }
